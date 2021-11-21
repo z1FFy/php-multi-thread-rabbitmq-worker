@@ -1,11 +1,11 @@
-#PHP MULTI THREAD(ASYNC) RABBITMQ QUEUE TESTCASE
+# PHP MULTI THREAD(ASYNC) RABBITMQ QUEUE TESTCASE
 
-###INSTALL
+### INSTALL
 1) `composer install`
 2) Rename .env.dist file to .env and change environments for tou
 
 
-###USAGE
+### USAGE
 1) Run consumers with command `php bin/application.php consume`
 2) Run tasks `php bin/application.php execute_tasks`
 
