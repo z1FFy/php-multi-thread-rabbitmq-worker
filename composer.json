@@ -2,7 +2,8 @@
     "require": {
         "php-amqplib/php-amqplib": "^3.1",
         "vlucas/phpdotenv": "^5.4",
-        "symfony/console": "^5.3"
+        "netresearch/jsonmapper": "^4.0",
+        "spatie/async": "^1.5"
     },
 
     "autoload": {

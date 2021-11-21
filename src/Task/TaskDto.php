@@ -4,7 +4,7 @@
 namespace App\Task;
 
 
-class TaskEntity
+class TaskDto
 {
     /** @var string */
     public string $category;
@@ -12,6 +12,6 @@ class TaskEntity
     /** @var string */
     public string $task;
 
-    /** @var string */
-    public string $data;
+    /** @var TaskDataDto */
+    public TaskDataDto $data;
 }

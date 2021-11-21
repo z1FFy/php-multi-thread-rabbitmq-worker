@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Flagmer\Billing\Account;
+namespace App\Flagmer\Billing\Account;
 
 
 class processPaymentDto

@@ -2,13 +2,12 @@
 
 namespace App\Queue;
 
-use ErrorException;
-use Exception;
+use App\Task\TaskHandler;
 use PhpAmqpLib\Channel\AMQPChannel;
 use PhpAmqpLib\Connection\AMQPStreamConnection;
 use PhpAmqpLib\Message\AMQPMessage;
 
-class RabbitMqService
+class QueueService
 {
     protected AMQPStreamConnection $connection;
     protected AMQPChannel $channel;
@@ -47,6 +46,8 @@ class RabbitMqService
 
     public function consume(int $consumeCount)
     {
+        date_default_timezone_set('Europe/Moscow');
+
         $this->channel = $this->connection->channel();
 
         $this->channel->queue_declare(
@@ -55,17 +56,16 @@ class RabbitMqService
 
         $this->channel->basic_qos(null, 1, null);
 
-        for ($i=1; $i <= $consumeCount; $i++) {
-            var_dump($i);
+
             $this->channel->basic_consume(
-                $this->queue_name, $i, false, false, false, false,
-                function ($msg) {
-                    echo ' [x] Received ', $msg->body, "\n";
-                    sleep(substr_count($msg->body, '.'));
-                    echo " [x] Done\n";
+                $this->queue_name, $consumeCount, false, false, false, false,
+                function ($msg)  {
+
+                    $taskHandler = new TaskHandler();
+                    $taskHandler->handle($msg->body);
+                    file_put_contents(__DIR__.'/../../resources/log.log',$date = date('Y-m-d H:i:s') . ' = ' . $msg->body ."\n",FILE_APPEND);
                     $msg->ack();
             });
-        }
 
         while ($this->channel->is_open()) {
             $this->channel->wait();
@@ -88,9 +88,6 @@ class RabbitMqService
         return true;
     }
 
-    /**
-     * @throws Exception
-     */
     public function closeConnection()
     {
         $this->channel->close();

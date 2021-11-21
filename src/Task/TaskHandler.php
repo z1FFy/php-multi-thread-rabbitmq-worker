@@ -1,49 +1,41 @@
 <?php
 
-namespace App\TaskHandler;
+namespace App\Task;
 
-
-use App\RabbitMq\RabbitMq;
-use Dotenv\Dotenv;
-use Exception;
+use App\Flagmer\Billing\Account;
+use App\Flagmer\Integrations\AmoCrm;
+use App\Flagmer\Integrations\Amocrm\sendLeadDto;
 
 class TaskHandler
 {
-    protected array $data = [1,2,3];
-    protected $queueService;
 
-    public function __construct()
+    public function handle($task)
     {
+        $mapper = new \JsonMapper();
+
+
+        $taskDto = new TaskDto();
+
+        $mapper->map(json_decode($task), $taskDto);
+
+
+        if ($taskDto->category === 'account' && $taskDto->task === 'processPayment') {
+            $account = new Account();
+            $processPaymentDto = new Account\processPaymentDto();
+            $processPaymentDto->account_id = $taskDto->data->account_id;
+            $processPaymentDto->amount = $taskDto->data->amount;
+
+            $account->processPaymentAction($processPaymentDto);
+        }
+
+        if ($taskDto->category === 'amocrm' && $taskDto->task === 'sendLead') {
+            $sendLeadDto = new sendLeadDto();
+            $sendLeadDto->lead_id = $taskDto->data->lead_id;
+
+            $amoCrm = new AmoCrm();
+            $amoCrm->sendLeadAction($sendLeadDto);
+        }
 
     }
 
-
-    /**
-     * @throws Exception
-     */
-    public function run()
-    {
-        $rabbitMq = new RabbitMq(
-            getenv('RABBIT_HOST'),
-            getenv('RABBIT_PORT'),
-            getenv('RABBIT_USER'),
-            getenv('RABBIT_PASSWORD'),
-            getenv('RABBIT_VHOST'),
-            getenv('RABBIT_QUEUE_NAME')
-        );
-
-
-        $rabbitMq->consume(getenv('RABBIT_QUEUE_NAME'), '1');
-        $rabbitMq->consume(getenv('RABBIT_QUEUE_NAME'), '2' );
-
-
-        var_dump($rabbitMq->publishMessage('hellooo', getenv('RABBIT_QUEUE_NAME')));
-        var_dump($rabbitMq->publishMessage('hellooo@@@222', getenv('RABBIT_QUEUE_NAME')));
-        var_dump($rabbitMq->publishMessage('hellooo@@@2221231231230___', getenv('RABBIT_QUEUE_NAME')));
-
-
-        sleep(5);
-        $rabbitMq->closeConnections();
-        return 'running!';
-    }
 }
