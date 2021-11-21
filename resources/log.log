@@ -1,43 +1,4 @@
-2021-11-21 06:09:52 = {"category":"account","task":"processPayment","data":{"account_id":123,"amount":59000}}
-2021-11-21 06:09:55 = {"category":"account","task":"processPayment","data":{"account_id":345,"amount":99000}}
-2021-11-21 06:09:56 = {"category":"amocrm","task":"sendLead","data":{"lead_id":1}}
-2021-11-21 06:09:56 = {"category":"account","task":"processPayment","data":{"account_id":678,"amount":139000}}
-2021-11-21 06:09:57 = {"category":"amocrm","task":"sendLead","data":{"lead_id":2}}
-2021-11-21 06:09:58 = {"category":"account","task":"processPayment","data":{"account_id":912,"amount":99000}}
-2021-11-21 06:09:59 = {"category":"account","task":"processPayment","data":{"account_id":912,"amount":99000}}
-2021-11-21 06:09:59 = {"category":"amocrm","task":"sendLead","data":{"lead_id":10}}
-2021-11-21 06:10:01 = {"category":"amocrm","task":"sendLead","data":{"lead_id":23}}
-2021-11-21 09:12:06 = {"category":"account","task":"processPayment","data":{"account_id":345,"amount":99000}}
-2021-11-21 09:12:07 = {"category":"account","task":"processPayment","data":{"account_id":123,"amount":59000}}
-2021-11-21 09:12:09 = {"category":"amocrm","task":"sendLead","data":{"lead_id":1}}
-2021-11-21 09:12:10 = {"category":"account","task":"processPayment","data":{"account_id":678,"amount":139000}}
-2021-11-21 09:12:12 = {"category":"account","task":"processPayment","data":{"account_id":912,"amount":99000}}
-2021-11-21 09:12:13 = {"category":"amocrm","task":"sendLead","data":{"lead_id":10}}
-2021-11-21 09:12:13 = {"category":"amocrm","task":"sendLead","data":{"lead_id":2}}
-2021-11-21 09:12:15 = {"category":"account","task":"processPayment","data":{"account_id":912,"amount":99000}}
-2021-11-21 09:12:15 = {"category":"amocrm","task":"sendLead","data":{"lead_id":23}}
-2021-11-21 09:13:58 = {"category":"amocrm","task":"sendLead","data":{"lead_id":1}}
-2021-11-21 09:13:58 = {"category":"account","task":"processPayment","data":{"account_id":123,"amount":59000}}
-2021-11-21 09:13:59 = {"category":"account","task":"processPayment","data":{"account_id":678,"amount":139000}}
-2021-11-21 09:13:59 = {"category":"account","task":"processPayment","data":{"account_id":345,"amount":99000}}
-2021-11-21 09:14:01 = {"category":"account","task":"processPayment","data":{"account_id":912,"amount":99000}}
-2021-11-21 09:14:01 = {"category":"account","task":"processPayment","data":{"account_id":912,"amount":99000}}
-2021-11-21 09:14:02 = {"category":"amocrm","task":"sendLead","data":{"lead_id":2}}
-2021-11-21 09:14:02 = {"category":"amocrm","task":"sendLead","data":{"lead_id":10}}
-2021-11-21 09:14:03 = {"category":"amocrm","task":"sendLead","data":{"lead_id":23}}
-
-
-
-2021-11-21 09:14:36 = {"category":"account","task":"processPayment","data":{"account_id":345,"amount":99000}}
-2021-11-21 09:14:37 = {"category":"account","task":"processPayment","data":{"account_id":123,"amount":59000}}
-2021-11-21 09:14:37 = {"category":"account","task":"processPayment","data":{"account_id":678,"amount":139000}}
-2021-11-21 09:14:37 = {"category":"amocrm","task":"sendLead","data":{"lead_id":10}}
-2021-11-21 09:14:38 = {"category":"account","task":"processPayment","data":{"account_id":912,"amount":99000}}
-2021-11-21 09:14:38 = {"category":"amocrm","task":"sendLead","data":{"lead_id":1}}
-2021-11-21 09:14:39 = {"category":"account","task":"processPayment","data":{"account_id":912,"amount":99000}}
-2021-11-21 09:14:39 = {"category":"amocrm","task":"sendLead","data":{"lead_id":2}}
-2021-11-21 09:14:40 = {"category":"amocrm","task":"sendLead","data":{"lead_id":23}}
-======= START ====== 
+======= START ======
 2021-11-21 09:17:33 = {"category":"account","task":"processPayment","data":{"account_id":123,"amount":59000}}
 2021-11-21 09:17:36 = {"category":"account","task":"processPayment","data":{"account_id":345,"amount":99000}}
 2021-11-21 09:17:39 = {"category":"amocrm","task":"sendLead","data":{"lead_id":1}}

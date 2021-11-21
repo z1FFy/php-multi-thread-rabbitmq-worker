@@ -57,14 +57,14 @@ class QueueService
         $this->channel->basic_qos(null, 1, null);
 
 
-            $this->channel->basic_consume(
-                $this->queue_name, $consumeCount, false, false, false, false,
-                function ($msg)  {
+        $this->channel->basic_consume(
+            $this->queue_name, $consumeCount, false, false, false, false,
+            function ($msg) {
 
-                    $taskHandler = new TaskHandler();
-                    $taskHandler->handle($msg->body);
-                    file_put_contents(__DIR__.'/../../resources/log.log',$date = date('Y-m-d H:i:s') . ' = ' . $msg->body ."\n",FILE_APPEND);
-                    $msg->ack();
+                $taskHandler = new TaskHandler();
+                $taskHandler->handle($msg->body);
+                file_put_contents(__DIR__ . '/../../resources/log.log', $date = date('Y-m-d H:i:s') . ' = ' . $msg->body . "\n", FILE_APPEND);
+                $msg->ack();
             });
 
         while ($this->channel->is_open()) {

@@ -12,12 +12,9 @@ class TaskHandler
     public function handle($task)
     {
         $mapper = new \JsonMapper();
-
-
         $taskDto = new TaskDto();
 
         $mapper->map(json_decode($task), $taskDto);
-
 
         if ($taskDto->category === 'account' && $taskDto->task === 'processPayment') {
             $account = new Account();
