@@ -7,6 +7,6 @@
 
 ### USAGE
 1) Run consumers with command `php bin/application.php consume`
-2) Run tasks `php bin/application.php execute_tasks`
+2) Open new terminal tab and run tasks `php bin/application.php execute_tasks`
 
 Logs writing in resources/log.log file
