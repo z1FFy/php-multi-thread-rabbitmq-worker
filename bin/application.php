@@ -24,7 +24,6 @@ switch ($commandAction) {
 
     case 'consume':
         echo " [*] Waiting for messages. To exit press CTRL+C\n";
-        file_put_contents(__DIR__ . '/../resources/log.log', "======= START ====== \n", FILE_APPEND);
         $pool = Pool::create();
 
         $consumeNumber = getenv('RABBIT_CONSUME_NUMBER');
@@ -45,6 +44,8 @@ switch ($commandAction) {
         break;
 
     case 'execute_tasks':
+        file_put_contents(__DIR__ . '/../resources/log.log', "======= START ====== \n", FILE_APPEND);
+
         $tasks = file_get_contents(__DIR__ . '/../resources/tasks.json');
         $tasks = json_decode($tasks, 1);
         $rabbitMqService->connect();
