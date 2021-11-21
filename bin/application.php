@@ -15,7 +15,7 @@ switch ($commandAction) {
 
     case 'consume':
         echo " [*] Waiting for messages. To exit press CTRL+C\n";
-        $pool = Pool::create();
+        $pool = Pool::create()->sleepTime(3600000000);
 
         $consumeNumber = getenv('RABBIT_CONSUME_NUMBER');
         for ($i = 1; $i <= $consumeNumber; $i++) {
