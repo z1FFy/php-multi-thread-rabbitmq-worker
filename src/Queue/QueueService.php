@@ -90,9 +90,11 @@ class QueueService
 
     public function closeConnection()
     {
-        if ($this->channel) {
+        if ($this->channel->is_open()) {
             $this->channel->close();
-            $this->connection->close();
+            if ($this->connection->isConnected()) {
+                $this->connection->close();
+            }
         }
     }
 }
